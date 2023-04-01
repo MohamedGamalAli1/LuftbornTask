@@ -1,0 +1,40 @@
+﻿@model List<LuftbornTask.Models.Product>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<div class="row">
+    <div class="col-md-12">
+        <a asp-action="Create" asp-controller="Product" class="btn btn-success">Create</a>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-active table-striped  table-bordered  mt-4">
+            <thead>
+                <tr>
+                    <td>Index</td>
+                    <td>Code</td>
+                    <td>Name</td>
+                    <td>Quantity</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.ProductCode</td>
+                        <td>@item.ProductName</td>
+                        <td>@item.Quantity</td>
+                        <td>
+                            <a asp-action="Edit" asp-controller="Product" asp-route-id="@item.Id">
+                                Edit
+                            </a>
+                            <a asp-action="Delete" asp-controller="Product" asp-route-id="@item.Id">
+                                Delete
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
